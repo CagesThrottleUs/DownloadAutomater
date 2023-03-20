@@ -1,0 +1,78 @@
+{
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "debug": {
+          "type": "boolean"
+        },
+        "defaultPlaylist": {
+          "type": "string"
+        },
+        "savePath": {
+          "type": "string"
+        },
+        "archiveFile": {
+          "type": "string"
+        },
+        "downloader": {
+          "type": "object",
+          "properties": {
+            "executable": {
+              "type": "string"
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "option": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "option",
+                  "value"
+                ]
+              }
+            }
+          },
+          "required": [
+            "executable",
+            "options"
+          ]
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              },
+              "frequency": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name",
+              "link",
+              "frequency"
+            ]
+          }
+        }
+      },
+      "required": [
+        "debug",
+        "defaultPlaylist",
+        "savePath",
+        "archiveFile",
+        "downloader",
+        "channels"
+      ]
+    }

@@ -1,0 +1,312 @@
+{
+      "$schema": "",
+      "debug": true,
+      "defaultPlaylist": "https://www.youtube.com/playlist?list=PLYo4GDM-6t3PgIxb-VyCK6ahNLomxqbJA",
+      "savePath": "./../",
+      "archiveFile": "archive.txt",
+      "downloader": {
+            "executable": "yt-dlp",
+            "options": [
+                  {
+                        "option": "--verbose",
+                        "value": ""
+                  },
+                  {
+                        "option": "--update",
+                        "value": ""
+                  },
+                  {
+                        "option": "--abort-on-error",
+                        "value": ""
+                  },
+                  {
+                        "option": "--extract-audio",
+                        "value": ""
+                  },
+                  {
+                        "option": "--windows-filenames",
+                        "value": ""
+                  },
+                  {
+                        "option": "--simulate",
+                        "value": ""
+                  },
+                  {
+                        "option": "--progress",
+                        "value": ""
+                  },
+                  {
+                        "option": "--audio-format",
+                        "value": "mp3"
+                  },
+                  {
+                        "option": "--audio-quality",
+                        "value": "320K"
+                  }, 
+                  {
+                        "option": "--output",
+                        "value": "[%(uploader)s] %(title)s.%(ext)s"
+                  },
+                  {
+                        "option": "--sponsorblock-remove",
+                        "value": "all"
+                  },
+                  {
+                        "option": "--download-archive",
+                        "value": "archive.txt"
+                  }
+            ]
+      },
+      "channels": [
+            {
+                  "name": "LofiGirl",
+                  "link": "https://www.youtube.com/@LofiGirl/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "ChillHop Music",
+                  "link": "https://www.youtube.com/@ChillhopMusic/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Ambition",
+                  "link": "https://www.youtube.com/@AmbitionMusic/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "ThePrimeThanatos",
+                  "link": "https://www.youtube.com/@ThePrimeThanatos/videos",
+                  "frequency": 2
+            },
+            {
+                  "name": "ThePrimeCronus",
+                  "link": "https://www.youtube.com/@ThePrimeCronus/videos",
+                  "frequency": 2
+            },
+            {
+                  "name": "Astral Throb",
+                  "link": "https://www.youtube.com/@AstralThrob/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "BUNT. Music",
+                  "link": "https://www.youtube.com/@BUNTMusic/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Chill Nation",
+                  "link": "https://www.youtube.com/@chillnation/videos",
+                  "frequency": 2
+            },
+            {
+                  "name": "Bass Nation",
+                  "link": "https://www.youtube.com/@808nation/videos",
+                  "frequency": 2
+            },
+            {
+                  "name": "CloudKid",
+                  "link": "https://www.youtube.com/@cloudkid/videos",
+                  "frequency": 2
+            },
+            {
+                  "name": "TheSoundYouNeed",
+                  "link": "https://www.youtube.com/@thesoundyouneed1/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "CloudKid Artists",
+                  "link": "https://www.youtube.com/@CloudKidArtists/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Diversity EDM",
+                  "link": "https://www.youtube.com/c/edmDiversityRecordings/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "House Nation",
+                  "link": "https://www.youtube.com/@AllHouseNation/videos",
+                  "frequency": 2
+            },
+            {
+                  "name": "Cakes & Eclairs",
+                  "link": "https://www.youtube.com/@CakesEclairsMusic/videos",
+                  "frequency": 2
+            },
+            {
+                  "name": "Vibe Music",
+                  "link": "https://www.youtube.com/@vibemusic./videos",
+                  "frequency": 2
+            },
+            {
+                  "name": "Future Hype",
+                  "link": "https://www.youtube.com/@futurehype/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Indie Nation",
+                  "link": "https://www.youtube.com/@IndieNation/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "R&B Nation",
+                  "link": "https://www.youtube.com/@RBNation/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Lofi Records",
+                  "link": "https://www.youtube.com/@LofiRecords/videos",
+                  "frequency": 2
+            },
+            {
+                  "name": "Lowly",
+                  "link": "https://www.youtube.com/@Lowly/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "MissHentaiMusic",
+                  "link": "https://www.youtube.com/@MissHentaiMusic/videos",
+                  "frequency": 2
+            },
+            {
+                  "name": "Monstercat Instinct",
+                  "link": "https://www.youtube.com/@monstercatinstinct/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Monstercat Uncaged",
+                  "link": "https://www.youtube.com/@Monstercat/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Monstercat Silk",
+                  "link": "https://www.youtube.com/@monstercatsilk/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Koala Kontrol",
+                  "link": "https://www.youtube.com/@koalakontrol/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Aminium Music",
+                  "link": "https://www.youtube.com/@AminiumMusics/videos",
+                  "frequency": 2
+            },
+            {
+                  "name": "A Paradise Bird",
+                  "link": "https://www.youtube.com/@a_paradise_bird/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "IndieAir",
+                  "link": "https://www.youtube.com/@indie/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Aurora Vibes",
+                  "link": "https://www.youtube.com/@AuroraVibes/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "MrMomMusic",
+                  "link": "https://www.youtube.com/@MrMoMMusic/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Galaxy Music",
+                  "link": "https://www.youtube.com/@GalaxyMusic/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "MrSuicideSheep",
+                  "link": "https://www.youtube.com/@MrSuicideSheep/videos",
+                  "frequency": 2
+            },
+            {
+                  "name": "NewRetroWave",
+                  "link": "https://www.youtube.com/@NewRetroWave/videos",
+                  "frequency": 2
+            },
+            {
+                  "name": "Nightblue Music",
+                  "link": "https://www.youtube.com/@NightblueMusic/videos",
+                  "frequency": 2
+            },
+            {
+                  "name": "NIGHTMODE",
+                  "link": "https://www.youtube.com/@NIGHTMODE/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "NoCopyrightSounds",
+                  "link": "https://www.youtube.com/@NoCopyrightSounds/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "SyrebralVibes",
+                  "link": "https://www.youtube.com/@SyrebralVibes/videos",
+                  "frequency": 2
+            },
+            {
+                  "name": "Pillow",
+                  "link": "https://www.youtube.com/@PillowMusic/videos",
+                  "frequency": 2
+            },
+            {
+                  "name": "Unique Vibes",
+                  "link": "https://www.youtube.com/@itsUniqueVibes/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Proximity",
+                  "link": "https://www.youtube.com/@Proximity/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Samuel Kim Music",
+                  "link": "https://www.youtube.com/@samuelkimmusic/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "SuicideSheep",
+                  "link": "https://www.youtube.com/@SuicideSheeep/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "The Jazz Hop Cafe",
+                  "link": "https://www.youtube.com/@TheJazzHopCafe/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "the bootleg boy",
+                  "link": "https://www.youtube.com/@thebootlegboy/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "the bootleg boy 2",
+                  "link": "https://www.youtube.com/@thebootlegboy2/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Trap City",
+                  "link": "https://www.youtube.com/@trapcity/videos",
+                  "frequency": 2
+            },
+            {
+                  "name": "Trap Nation",
+                  "link": "https://www.youtube.com/@TrapNation/videos",
+                  "frequency": 2
+            },
+            {
+                  "name": "Valiant",
+                  "link": "https://www.youtube.com/@whoisvaliant/videos",
+                  "frequency": 2
+            },
+            {
+                  "name": "xKito",
+                  "link": "https://www.youtube.com/@xKitoMusic/videos",
+                  "frequency": 2
+            }
+      ]
+}
