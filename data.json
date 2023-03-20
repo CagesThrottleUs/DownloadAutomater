@@ -1,5 +1,5 @@
 {
-      "$schema": "",
+      "$schema": "https://raw.githubusercontent.com/CagesThrottleUs/MusicAutomatedDownload/master/schemaForData.json",
       "debug": true,
       "defaultPlaylist": "https://www.youtube.com/playlist?list=PLYo4GDM-6t3PgIxb-VyCK6ahNLomxqbJA",
       "savePath": "./../",
