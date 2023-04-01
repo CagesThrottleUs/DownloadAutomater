@@ -133,6 +133,13 @@ public:
 
             SetConsoleCursorPosition(_stdout, finalPos);
       }
+      
+      void Error(const string text){
+            updateConsoleBufferInfo();
+            SetConsoleTextAttribute(_stdout, FOREGROUND_RED);
+            cout << text << endl;
+            SetConsoleTextAttribute(_stdout, csbinfo.wAttributes);
+      }
 };
 
 #endif // INCLUDE_UIRENDERER_HPP_

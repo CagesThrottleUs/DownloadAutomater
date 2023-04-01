@@ -1,6 +1,5 @@
 {
       "$schema": "https://raw.githubusercontent.com/CagesThrottleUs/MusicAutomatedDownload/master/schemaForData.json",
-      "debug": true,
       "defaultPlaylist": "https://www.youtube.com/playlist?list=PLYo4GDM-6t3PgIxb-VyCK6ahNLomxqbJA",
       "savePath": "./../",
       "archiveFile": "archive.txt",
@@ -28,10 +27,6 @@
                         "value": ""
                   },
                   {
-                        "option": "--simulate",
-                        "value": ""
-                  },
-                  {
                         "option": "--progress",
                         "value": ""
                   },
@@ -55,7 +50,8 @@
                         "option": "--download-archive",
                         "value": "archive.txt"
                   }
-            ]
+            ],
+            "freqMatcherOption": "--max-downloads"
       },
       "channels": [
             {

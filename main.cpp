@@ -7,9 +7,8 @@
 
 #include "json.hpp"
 #include "UIRenderer.hpp"
-#include "tests.hpp"
 #include "initializeData.hpp"
-
+#include "downloader.hpp"
 
 using namespace std;
 using json = nlohmann::json;
@@ -25,15 +24,26 @@ int main(){
       render.Footer();
       render.Separator();
 
-      const bool debug = asset.debug;
-      const string defaultPlaylist = asset.defaultPlaylist;
-      
-      if(debug){
-            activateRendererTests(render);
-            activateJSONTests(render, dataPath);
-            return 0;
+      // ADd download playlist first with Match
+      render.Header("Downloading playlist against archive");
+
+      Utils util; 
+      util.downloadPlaylist(asset, render);
+      render.Footer();
+      render.Separator();
+
+
+      string ch;
+      render.Input("Do you want to download from channels? <y/n>: ", ch);
+
+
+      if(ch == "y"){
+            render.Header("Downloading playlists and matching with archive");
+            util.downloadChannels(asset, render);
+            render.Footer();
+            render.Separator();
+      } else {
+            // end's the program
       }
-      //Check if you want a playlist
-      // TODO: Channels all together or not &&& JSON-Scheme
       return 0;
 }

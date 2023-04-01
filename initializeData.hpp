@@ -23,8 +23,12 @@ public:
             name(Option),
             value(Value)
       {}
-      string command(){
-            return name + value;
+      string command() const{
+            if(value.length() == 0){
+                  return name;
+            } else{
+                  return name + " \"" + value + "\"";
+            }
       }
       friend ostream& operator<<(ostream& os, const Options &opt){
             os << "[\n\tOption: " << opt.name << "\n\tValue: " << opt.value << "\n]";
@@ -35,23 +39,26 @@ public:
 class Downloader{
       string exec;
       vector<Options> opt;
+      string freqMatcher;
 public:
       Downloader():
             exec(""),
-            opt({})
+            opt({}),
+            freqMatcher("")
       {}
-      Downloader(string executable, vector<Options> &opts):
+      Downloader(string executable, vector<Options> &opts, string matcher):
             exec(executable),
-            opt(opts)
+            opt(opts),
+            freqMatcher(matcher)
       {}
-      string command(){
+      string command() const {
             string ans = exec + " ";
             for(auto &option : opt){
                   ans += option.command() + " ";
             }
             return ans;
       }
-      const string getExec(){
+      const string getExec() const{
             return exec;
       }
       void setExec(const string exec){
@@ -68,6 +75,12 @@ public:
             os << "\n]\n";
             return os;
       }
+      void setFreqMatcher(const string matcher){
+            this->freqMatcher = matcher;
+      }
+      const string getFreqMatcher() const{
+            return freqMatcher;
+      }
 };
 
 class Channels{
@@ -80,13 +93,13 @@ public:
             link(Link),
             freq(Freq)
       {}
-      const string getName(){
+      const string getName() const{
             return name;
       }
-      const string getLink(){
+      const string getLink() const{
             return link;
       }
-      const short getFreq(){
+      const short getFreq() const{
             return freq;
       }
       void setName(const string Name){
@@ -107,7 +120,6 @@ public:
 struct JSONModule{
       string savePath = "";
       string archiveFile = "";
-      bool debug = false;
       string defaultPlaylist = "";
       Downloader downloader{};
       vector<Channels> channels{};
@@ -148,6 +160,8 @@ void fillDownloader(json &data, JSONModule &out){
             Options tempOptions(tempName, tempVal);
             out.downloader.addOption(tempOptions);
       }
+      obj.at("freqMatcherOption").get_to(temp);
+      out.downloader.setFreqMatcher(temp);
       cout << "DONE! " << endl;
 }
 
@@ -161,9 +175,6 @@ const JSONModule initialize(const string dataPath, UIRenderer render){
       cout << "Trying to understand savePath and archiveFile!!" << endl;
       data.at("savePath").get_to(ans.savePath);
       data.at("archiveFile").get_to(ans.archiveFile);
-      cout << "Checking if DEBUG mode! ";
-      data.at("debug").get_to(ans.debug);
-      cout << std::boolalpha << ans.debug << endl;
 
       string temp = "";
       render.Input("DO YOU WANT TO USE YOUR PLAYLIST? <y/n>: ",temp);
@@ -181,7 +192,7 @@ const JSONModule initialize(const string dataPath, UIRenderer render){
 
       // Check current Hack
       cout << "Checking if ARCHIVE File match!!" << endl;
-      assert(ans.archiveFile == data.at("downloader").at("options").at(11).at("value") && "Please match --download-archive and archiveFile in JSON");
+      assert(ans.archiveFile == data.at("downloader").at("options").at(10).at("value") && "Please match --download-archive and archiveFile in JSON");
       cout << "DONE!" << endl;
 
       inFile.close();

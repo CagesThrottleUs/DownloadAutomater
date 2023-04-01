@@ -1,91 +1,74 @@
 {
-      "$schema": "http://json-schema.org/draft-04/schema#",
-      "type": "object",
-      "properties": {
-        "debug": {
-          "type": "boolean",
-          "description": "To run the program in debug Mode"
-        },
-        "defaultPlaylist": {
-          "type": "string",
-          "description": "The Youtube link to the default Playlist that will validate and download music"
-        },
-        "savePath": {
-          "type": "string",
-          "description": "Write the location to save folder in a relative format"
-        },
-        "archiveFile": {
-          "type": "string",
-          "description": "The name of the archival File to validate against. Must be a top level file with respect to save folder"
-        },
-        "downloader": {
-            "description": "Tell what the downloader is about",
-          "type": "object",
-          "properties": {
-            "executable": {
-              "type": "string",
-              "description": "The name of executable that will be called on Command line."
-            },
-            "options": {
-              "type": "array",
-              "description": "Options to pass on to the executa",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "option": {
-                    "type": "string",
-                    "description": "The option name"
-                  },
-                  "value": {
-                    "type": "string",
-                    "description": "The option value, to associate, if none then just pass \"\""
-                  }
-                },
-                "required": [
-                  "option",
-                  "value"
-                ]
-              }
-            }
-          },
-          "required": [
-            "executable",
-            "options"
-          ]
-        },
-        "channels": {
-          "type": "array",
-          "description": "Add the channels to download the Audio from",
-          "items": {
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string",
-                "description": "The name of the channel"
-              },
-              "link": {
-                "type": "string",
-                "description": "The hyperlink to channel's video, shorts or livestream"
-              },
-              "frequency": {
-                "type": "integer",
-                "description": "Tells the number of videos, to download from this channel at one time"
-              }
-            },
-            "required": [
-              "name",
-              "link",
-              "frequency"
-            ]
-          }
-        }
-      },
-      "required": [
-        "debug",
-        "defaultPlaylist",
-        "savePath",
-        "archiveFile",
-        "downloader",
-        "channels"
-      ]
-    }
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type": "object",
+	"properties": {
+		"defaultPlaylist": {
+			"type": "string"
+		},
+		"savePath": {
+			"type": "string"
+		},
+		"archiveFile": {
+			"type": "string"
+		},
+		"downloader": {
+			"type": "object",
+			"properties": {
+				"executable": {
+					"type": "string"
+				},
+				"options": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"option": {
+								"type": "string"
+							},
+							"value": {
+								"type": "string"
+							}
+						},
+						"required": [
+							"option",
+							"value"
+						]
+					}
+				}
+			},
+			"required": [
+				"executable",
+				"options"
+			]
+		},
+		"channels": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"link": {
+						"type": "string"
+					},
+					"frequency": {
+						"type": "integer"
+					}
+				},
+				"required": [
+					"name",
+					"link",
+					"frequency"
+				]
+			}
+		}
+	},
+	"required": [
+		"defaultPlaylist",
+		"savePath",
+		"archiveFile",
+		"downloader",
+		"channels"
+	]
+}
