@@ -7,14 +7,6 @@
             "executable": "yt-dlp",
             "options": [
                   {
-                        "option": "--verbose",
-                        "value": ""
-                  },
-                  {
-                        "option": "--update",
-                        "value": ""
-                  },
-                  {
                         "option": "--abort-on-error",
                         "value": ""
                   },
@@ -303,6 +295,11 @@
                   "name": "xKito",
                   "link": "https://www.youtube.com/@xKitoMusic/videos",
                   "frequency": 2
+            },
+            {
+                  "name": "Illenium",
+                  "link": "https://www.youtube.com/@illenium/videos",
+                  "frequency": 1
             }
       ]
 }

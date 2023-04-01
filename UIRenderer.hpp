@@ -20,6 +20,12 @@ private:
       void updateConsoleBufferInfo(){
             GetConsoleScreenBufferInfo(_stdout, &csbinfo);
       }
+      void printColorLine(const string text, WORD wAttribute){
+            updateConsoleBufferInfo();
+            SetConsoleTextAttribute(_stdout, wAttribute);
+            cout << text << endl;
+            SetConsoleTextAttribute(_stdout, csbinfo.wAttributes);
+      }
 public:
       UIRenderer(){
             _stdout = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -135,10 +141,11 @@ public:
       }
       
       void Error(const string text){
-            updateConsoleBufferInfo();
-            SetConsoleTextAttribute(_stdout, FOREGROUND_RED);
-            cout << text << endl;
-            SetConsoleTextAttribute(_stdout, csbinfo.wAttributes);
+            printColorLine(text, FOREGROUND_RED);
+      }
+
+      void Info(const string text){
+            printColorLine(text, FOREGROUND_BLUE);
       }
 };
 

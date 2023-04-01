@@ -13,7 +13,7 @@ using namespace std;
 class Utils{
 private:
       const unsigned int countLines(const JSONModule &asset){
-            std::ifstream inFile(asset.archiveFile);
+            std::ifstream inFile(asset.savePath + asset.archiveFile);
             const unsigned int cnt = std::count(std::istreambuf_iterator<char>(inFile),
                               std::istreambuf_iterator<char>(), '\n');
             inFile.close();
@@ -33,7 +33,7 @@ private:
       }
       void createPlaylist(const int before, const int after, const JSONModule &asset){
             const int loop = after - before;
-            std::ifstream inFile(asset.archiveFile);
+            std::ifstream inFile(asset.savePath + asset.archiveFile);
             string temp;
             for (int i = 0; i < before; i++) getline(inFile, temp);
 
@@ -65,8 +65,8 @@ public:
             for(auto &channel: toDownload){
                   cout << "\033[2J\033[1;1H";
                   render.ProgressBar((i*1.0f)/(total), 100);
-                  cout << endl;
-                  cout << "Now Downloading: " << channel.getName() << endl;
+                  cout << " [" << i+1 << "/" << total << "]" << endl;
+                  render.Info("Now Downloading: " + channel.getName());
                   const string cmd = CMD(asset) + channel.getLink() + " " + asset.downloader.getFreqMatcher() + " " + to_string(channel.getFreq());
                   download(cmd, render);
                   i++;
