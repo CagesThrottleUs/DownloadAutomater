@@ -117,7 +117,7 @@ public:
             }
             const unsigned int after = countLines(asset);
             createPlaylist(before, after, asset);
-            saveFailed(failed);
+            saveFailed(failed, asset);
       }
 };
 
