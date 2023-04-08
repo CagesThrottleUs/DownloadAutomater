@@ -48,7 +48,8 @@ private:
             inFile.close();
 
             // break into multiple of 25 and execute
-            vector<vector<string>> divVideos = SplitVector(videos, 25);
+            /* Maximum size of a playlist can be 50 */
+            vector<vector<string>> divVideos = SplitVector(videos, (videos.size() / 50)); 
             for(auto &dividedVideos: divVideos){
                   launchPlaylist(dividedVideos);
             }
@@ -70,6 +71,15 @@ private:
             }
             out.close();
       }
+      /**
+       * @brief This function would split vector of any type in almost equal lengths,
+       * such that we get at most n in each split vector.
+       * 
+       * @tparam T automatically guessed or can be manually passed
+       * @param vec The big vector to split
+       * @param n Total number of vectors to be created
+       * @return std::vector<std::vector<T>> out
+       */
       template<typename T>
       std::vector<std::vector<T>> SplitVector(const std::vector<T>& vec, size_t n) {
             std::vector<std::vector<T>> outVec;

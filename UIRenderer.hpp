@@ -12,7 +12,6 @@
 using namespace std;
 
 class UIRenderer{
-      COORD coord; // Provide COORD where you want to write
       CONSOLE_SCREEN_BUFFER_INFO csbinfo;
       HANDLE _stdout;
 
@@ -30,8 +29,6 @@ public:
       UIRenderer(){
             _stdout = GetStdHandle(STD_OUTPUT_HANDLE);
             GetConsoleScreenBufferInfo(_stdout, &csbinfo);
-            coord.X = static_cast<short>(csbinfo.dwCursorPosition.X);
-            coord.Y = static_cast<short>(csbinfo.dwCursorPosition.Y);
       }
 
       void Header(const string headerTitle){
