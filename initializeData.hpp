@@ -190,11 +190,6 @@ const JSONModule initialize(const string dataPath, UIRenderer render){
       cout << "Now trying to fill Channels data" << endl;
       fillChannels(data, ans);
 
-      // Check current Hack
-      cout << "Checking if ARCHIVE File match!!" << endl;
-      assert(ans.archiveFile == data.at("downloader").at("options").at(10).at("value") && "Please match --download-archive and archiveFile in JSON");
-      cout << "DONE!" << endl;
-
       inFile.close();
       return ans;
 }
