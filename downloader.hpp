@@ -47,9 +47,9 @@ private:
 
             inFile.close();
 
-            // break into multiple of 25 and execute
             /* Maximum size of a playlist can be 50 */
-            vector<vector<string>> divVideos = SplitVector(videos, (videos.size() / 50)); 
+            const unsigned int numVecs = (videos.size() % 50) == 0 ? videos.size() / 50 : (videos.size() / 50) + 1;
+            vector<vector<string>> divVideos = SplitVector(videos, numVecs); 
             for(auto &dividedVideos: divVideos){
                   launchPlaylist(dividedVideos);
             }
