@@ -29,7 +29,7 @@
                   {
                         "option": "--audio-quality",
                         "value": "320K"
-                  }, 
+                  },
                   {
                         "option": "--output",
                         "value": "[%(uploader)s] %(title)s.%(ext)s"
@@ -294,6 +294,31 @@
             {
                   "name": "Illenium",
                   "link": "https://www.youtube.com/@illenium/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Ritviz",
+                  "link": "https://www.youtube.com/@ritvizomusic/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Takayan",
+                  "link": "https://www.youtube.com/@takayan_gorizal/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Ayase / Yoasobi",
+                  "link": "https://www.youtube.com/@Ayase_YOASOBI/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Uprise Music",
+                  "link": "https://www.youtube.com/@UpriseMusicOfficial/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "College Music",
+                  "link": "https://www.youtube.com/@CollegeMusic/videos",
                   "frequency": 1
             }
       ]
