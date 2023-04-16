@@ -102,11 +102,6 @@
                   "frequency": 1
             },
             {
-                  "name": "CloudKid Artists",
-                  "link": "https://www.youtube.com/@CloudKidArtists/videos",
-                  "frequency": 1
-            },
-            {
                   "name": "Diversity EDM",
                   "link": "https://www.youtube.com/c/edmDiversityRecordings/videos",
                   "frequency": 1
@@ -319,6 +314,16 @@
             {
                   "name": "College Music",
                   "link": "https://www.youtube.com/@CollegeMusic/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Abao in Tokyo",
+                  "link": "https://www.youtube.com/@abaointokyo/videos",
+                  "frequency": 1
+            },
+            {
+                  "name": "Unlike Pluto",
+                  "link": "https://www.youtube.com/@UnlikePluto/videos",
                   "frequency": 1
             }
       ]
