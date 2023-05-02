@@ -1,0 +1,48 @@
+name: Channel Track Request
+description: add your channel request
+title: "[CHANNEL_REQUEST]: <NAME>"
+labels: ["ChannelRequest", "Tracking"]
+assignees:
+  - CagesThrottleUs
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to suggest a new music Channel!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: "How can we get in touch with you if we need more info?"
+      placeholder: "ex. email@example.com"
+    validations:
+      required: false
+  - type: input
+    id: channelName
+    attributes:
+      label: Name of Channel
+      description: "What is the name as seen on YouTube?"
+      placeholder: "Trap Nation"
+    validations:
+      required: true
+  - type: input
+    id: channelLink
+    attributes:
+      label: Channel Link
+      description: "Add link to channel videos page"
+      placeholder: "https://www.youtube.com/@TrapNation/videos"
+    validations:
+      required: true
+  - type: dropdown
+    id: frequencyDownload
+    attributes:
+      label: "Download Frequency"
+      description: "(Not necessary) How many videos to download at a time?"
+      options:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7

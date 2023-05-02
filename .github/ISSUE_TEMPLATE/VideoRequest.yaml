@@ -1,0 +1,61 @@
+name: Music Video Request
+description: Add the video you want in https://bit.ly/42hzGVQ
+title: "[VIDEO_REQUEST]: Title"
+labels: ["VideoRequest", "ImprovePlaylist", "BetterRadio"]
+assignees:
+  - CagesThrottleUs
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to suggest a new music video for listeners.
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: "How can we get in touch with you if we need more info?"
+      placeholder: "ex. email@example.com"
+    validations:
+      required: false
+  - type: input
+    id: videoLink
+    attributes:
+      label: Video Link
+      description: "Please provide a YT Music link for playlist"
+      placeholder: "https://music.youtube.com/watch?v=ApZbWTqEG08"
+    validations:
+      required: true
+  - type: input
+    id: musicGenre
+    attributes:
+      label: Music Genre
+      description: "Please provide the genre of Music to the best of your guess"
+      placeholder: "Lofi"
+    validations:
+      required: true
+  - type: dropdown
+    id: playlistOrSingle
+    attributes:
+      label: Long Mix Check
+      description: "Is this a long mix of multiple songs or a single song?"
+      options:
+        - Yes
+        - No
+    validations:
+      required: true
+  - type: checkboxes
+    id: languages
+    attributes:
+      label: "What are the languages for the video?"
+      description: "Allowed to select Multiple"
+      options:
+        - None/Only beats
+        - English
+        - Hindi
+        - Punjabi
+        - Spanish
+        - Korean
+        - Japanese
+        - Telugu
+        - Tamil
+        - Other ...
