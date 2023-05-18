@@ -47,6 +47,11 @@
   },
   "channels": [
     {
+      "name": "Odysseus",
+      "link": "https://www.youtube.com/@OdysseusOfficial/videos",
+      "frequency": 1
+    },
+    {
       "name": "SevenLions",
       "link": "https://www.youtube.com/@SEVENLIONSofficial/videos",
       "frequency": 1
