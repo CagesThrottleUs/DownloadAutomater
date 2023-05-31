@@ -47,6 +47,36 @@
   },
   "channels": [
     {
+      "name": "Chaar Deewari",
+      "link": "https://youtube.com/@ChaarDiwaari/videos",
+      "frequency": 1
+    },
+    {
+      "name": "Raman Negi",
+      "link": "https://youtube.com/@raman__negi/videos",
+      "frequency": 1
+    },
+    {
+      "name": "The Local Train",
+      "link": "https://youtube.com/@Thelocaltrain/videos",
+      "frequency": 1
+    },
+    {
+      "name": "Pineapple Express",
+      "link": "https://youtube.com/@PineappleExpressMusic/videos",
+      "frequency": 1
+    },
+    {
+      "name": "Imagine Dragons",
+      "link": "https://www.youtube.com/@ImagineDragons/videos",
+      "frequency": 2
+    },
+    {
+      "name": "Emotional Oranges",
+      "link": "https://www.youtube.com/@emotionaloranges/videos",
+      "frequency": 1
+    },
+    {
       "name": "Odysseus",
       "link": "https://www.youtube.com/@OdysseusOfficial/videos",
       "frequency": 1
