@@ -1,0 +1,69 @@
+{
+  "data": {
+    "channels": "./data/channels.tracked.json",
+    "downloader": "./data/downloader.args.json",
+    "archive": {
+      "links": "./data/archive.links.txt",
+      "names": "./data/archive.names.txt"
+    },
+    "generators": {
+      "archiveNames": "./data/generateArchiveNames.py"
+    }
+  },
+  "executionEngine": {
+    "playlist": {
+      "execute?": true,
+      "default": "https://www.youtube.com/playlist?list=PLYo4GDM-6t3PgIxb-VyCK6ahNLomxqbJA",
+      "outputIn": "process",
+      "runSafeAfterFail": true
+    },
+    "channel": {
+      "execute?": true,
+      "outputIn": "process",
+      "runSafeAfterFail": true
+    },
+    "launchPlaylist": {
+      "WARN": "Please rename the files WITHOUT DELETING ids wrapped in {} - \n",
+      "attentionGrab": "start https://www.google.com/",
+      "compareFilesAndDelete": true,
+      "renameBeforeLaunch": true,
+      "launchMode": "shell",
+      "output": "generatePlaylist.sh",
+      "outputIn": "helper"
+    },
+    "updateArchiveNames": {
+      "execute?": true,
+      "locationOfFiles": "D:\\Music\\",
+      "provideArchiveFileFromData": true
+    }
+  },
+  "directories": ["helper", "process"],
+  "failures": {
+    "description": "What are the different failures that can be seen in run-time?",
+    "outputIn": "helper",
+    "playlist": [
+      {
+        "case": "DownloadError",
+        "status": 1,
+        "output": "playlistDownloadErrorSafeMode.sh"
+      },
+      {
+        "case": "BadOptions",
+        "status": 2,
+        "output": "verboseRunAndSave.sh"
+      }
+    ],
+    "channel": [
+      {
+        "case": "DownloadError",
+        "status": 1,
+        "output": "channelDownloadErrorSafeMode.sh"
+      },
+      {
+        "case": "BadOptions",
+        "status": 2,
+        "output": "verboseRunAndSave.sh"
+      }
+    ]
+  }
+}
