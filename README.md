@@ -1,28 +1,61 @@
-# Download Automater
+# Introduction
 
-This project is developed for Automating my downloads for different YouTube Channels. 
+This project is developed for Automating different audio tracks that I will be putting to [my playlist](https://www.youtube.com/playlist?list=PLYo4GDM-6t3PgIxb-VyCK6ahNLomxqbJA).
 
-Here we basically download and checkout from an online playlist like [Mine](https://www.youtube.com/playlist?list=PLYo4GDM-6t3PgIxb-VyCK6ahNLomxqbJA). This is also matched from a local archive file as supported by the executable.
+# Table of contents
 
-# Prerequisites
+- [Introduction](#introduction)
+- [Table of contents](#table-of-contents)
+- [Prerequisite](#prerequisite)
+- [What's in the release](#whats-in-the-release)
+- [Rules regarding naming for data](#rules-regarding-naming-for-data)
+- [Work to be done](#work-to-be-done)
 
-The pre-requisites for running the application:\
+# Prerequisite
 
-1. [yt-dlp](https://github.com/yt-dlp/yt-dlp): Must be taken from releases and kept at a path that is visible from PATH (like C:\Windows).
-2. [Updated FFMpeg](https://github.com/yt-dlp/FFmpeg-Builds) - need for conversions from different encodings. Does post-process your downloads.
+To run the python file in data/ - Ensure that you have python3 and natsort library.
+# What's in the release
 
-For compiling the project on your own you definitely need - 
+The release file should have the following structure that you can put in any folder where you will be processing.
 
-1. [JSON.hpp](https://github.com/nlohmann/json/releases/latest) - Should be placed under ./library in project, please use the latest version
-2. [CMake](https://cmake.org/download/) - should 3.26 and above.
-3. [clang++](https://github.com/llvm/llvm-project/releases/latest) - This was used to create the executable for the project.
-4. C++20 standard.
+The code is set up in a way that helps me in creating my own playlist quickly. But options can be adjusted accordingly. Please feel free to create a PR/Issue for improvements.
 
-# Releases
+File Contents:
+```text
+-- ExecutableFile
+-- data/
+      -- archive.links.txt
+      -- archive.names.txt
+      -- channels.tracked.json
+      -- downloader.args.json
+      -- executable.opts.json
+      -- ffmpeg.exe
+      -- ffplay.exe
+      -- ffprobe.exe
+      -- generateArchiveNames.py
+      -- yt-dlp.exe
+-- process/
+      // All Data downloaded here 
+      // <CREATED BY EXECUTABLE>
+-- helper/
+      // Stores shell file and playlist execution
+      // <CREATED BY EXECUTABLE>
+```
 
-Please find the executable as main.exe and the archival file archive file that can be used together. Along with it we will have data.json which will hold data of different channel to download from.
+To run these files it is necessary to have various run time library that are present with C++. Windows User may find this at [WinLibs](https://winlibs.com/).
 
-- main.exe
-- args.json
-- channels.json
-- archive.txt
+You may download the executable from [FFMPEG](https://github.com/yt-dlp/FFmpeg-Builds/releases/latest) and [yt-dlp](https://github.com/yt-dlp/yt-dlp-nightly-builds/releases/latest).
+
+# Rules regarding naming for data
+
+To name different locations present in the data must be **Executable Relative**.
+
+Use the program present in data folder itself, as arguments are directly tied to it. Change it at your own risk.
+
+Only downloader arguments are going
+
+# Work to be done
+
+- [x] Create all the necessary files in the folder and save result.
+- [ ] CMake trick to get all the data file with executable.
+- [ ] Start Designing the starting JSON filter.
