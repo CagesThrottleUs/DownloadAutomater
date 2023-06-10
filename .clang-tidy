@@ -1,0 +1,20 @@
+# Generated from CLion Inspection settings
+---
+Checks: '*,
+-abseil-*,
+-altera-*,
+-android-*,
+-darwin-*,
+-fuchsia-*,
+-linuxkernel-*,
+-objc-*,
+-zircon-*,
+-llvm-*,
+llvm-include-order,
+-llvmlibc-*,
+-misc-unused-alias-decls,
+-misc-use-anonymous-namespace,
+-misc-non-private-member-variables-in-classes,
+-openmp-*,
+openmp-use-default-none,
+-portability-restrict-system-includes'
