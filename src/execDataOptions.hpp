@@ -17,6 +17,13 @@ class execDataOptions {
     std::unordered_map<std::string, std::string> generators;
 public:
     void fill(const json& harvestedData, int &retStatus, const std::string &srcLocation);
+
+    // Getters
+    auto getChannelsJson() const -> const std::string &;
+    auto getDownloaderJson() const -> const std::string &;
+    auto getArchiveFileName(const std::string& key) -> const std::string&;
+    auto getGeneratorFileName(const std::string& key) -> const std::string&;
+
 private:
     auto matchArchivesAndGeneratorKeys() -> bool;
 };

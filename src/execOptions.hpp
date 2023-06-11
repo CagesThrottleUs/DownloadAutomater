@@ -16,6 +16,11 @@ class execOptions {
 public:
     explicit execOptions();
     void fill(const std::string& srcLocation, int &retStatus);
+    auto getChannelsPath() -> const std::string&;
+    auto getDownloaderPath() -> const std::string&;
+    auto getArchiveLinkPath() -> const std::string&;
+    auto getArchiveNamePath() -> const std::string&;
+    auto getGeneratorNamePath() -> const std::string&;
 };
 
 

@@ -41,7 +41,7 @@ void execDataOptions::fill(const json& harvestedData, int &retStatus, const std:
 
     } catch (const std::exception &exception) {
         retStatus = JsonKeyValueNotFound;
-        throw jsonKeyValueNotFoundException("The following key: " + keyName + " is Missing! in " + srcLocation);
+        throw JsonKeyValueNotFoundException("The following key: " + keyName + " is Missing! in " + srcLocation);
     }
 
     // Match Archive - Generator Keys - can throw exception
@@ -72,4 +72,20 @@ auto execDataOptions::matchArchivesAndGeneratorKeys() -> bool {
     );
     std::cout << "Done Matching" << std::endl;
     return stat;
+}
+
+auto execDataOptions::getChannelsJson() const -> const std::string & {
+    return channelsJson;
+}
+
+auto execDataOptions::getDownloaderJson() const -> const std::string & {
+    return downloaderJson;
+}
+
+auto execDataOptions::getArchiveFileName(const std::string &key) -> const std::string & {
+    return archives[key];
+}
+
+auto execDataOptions::getGeneratorFileName(const std::string &key) -> const std::string & {
+    return generators[key];
 }
