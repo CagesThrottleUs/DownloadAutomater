@@ -16,7 +16,8 @@
       "execute?": true,
       "default": "https://www.youtube.com/playlist?list=PLYo4GDM-6t3PgIxb-VyCK6ahNLomxqbJA",
       "outputIn": "process",
-      "runSafeAfterFail": true
+      "runSafeAfterFail": true,
+      "outputMove": "D:\\Music\\"
     },
     "channel": {
       "execute?": true,
@@ -30,46 +31,17 @@
         "launchMode": "shell",
         "output": "generatePlaylist.sh",
         "outputIn": "helper"
-      }
+      },
+      "outputMove": "D:\\Music\\"
     },
-    "finishingTouches": {
-      "updateArchiveNamesWithGenerator": {
-        "execute?": true,
-        "locationOfFiles": "D:\\Music\\",
-        "provideArchiveFileFromData": true
-      },
-      "remixArchiveLinksDirectly": {
-        "execute?": true,
-        "provideArchiveFileFromData": true
-      }
+    "updateArchiveNamesWithGenerator": {
+      "execute?": true,
+      "locationOfFiles": "D:\\Music\\",
+      "provideArchiveFileFromData": true
+    },
+    "remixArchiveLinksDirectly": {
+      "execute?": true,
+      "provideArchiveFileFromData": true
     }
-  },
-  "failures": {
-    "description": "What are the different failures that can be seen in run-time?",
-    "outputIn": "helper",
-    "playlist": [
-      {
-        "case": "DownloadError",
-        "status": 1,
-        "output": "playlistDownloadErrorSafeMode.sh"
-      },
-      {
-        "case": "BadOptions",
-        "status": 2,
-        "output": "verboseRunAndSave.sh"
-      }
-    ],
-    "channel": [
-      {
-        "case": "DownloadError",
-        "status": 1,
-        "output": "channelDownloadErrorSafeMode.sh"
-      },
-      {
-        "case": "BadOptions",
-        "status": 2,
-        "output": "verboseRunAndSave.sh"
-      }
-    ]
   }
 }
