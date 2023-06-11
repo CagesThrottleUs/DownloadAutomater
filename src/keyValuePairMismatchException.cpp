@@ -10,6 +10,6 @@ KeyValuePairMismatchException::KeyValuePairMismatchException(std::string _msg): 
 
 }
 
-const char *KeyValuePairMismatchException::what() const noexcept {
+auto KeyValuePairMismatchException::what() const noexcept -> const char * {
     return msg.c_str();
 }

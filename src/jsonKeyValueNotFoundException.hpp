@@ -8,10 +8,10 @@
 #include <exception>
 #include <string>
 
-class jsonKeyValueNotFoundException : virtual public std::exception{
+class JsonKeyValueNotFoundException : virtual public std::exception{
     std::string msg;
 public:
-    explicit jsonKeyValueNotFoundException(std::string msg);
+    explicit JsonKeyValueNotFoundException(std::string msg);
     [[nodiscard]] auto what() const noexcept -> const char * override;
 };
 

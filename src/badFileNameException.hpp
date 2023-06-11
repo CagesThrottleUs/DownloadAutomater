@@ -9,10 +9,10 @@
 #include <exception>
 #include <string>
 
-class badFileNameException : virtual public std::exception{
+class BadFileNameException : virtual public std::exception{
     std::string msg;
 public:
-    explicit badFileNameException(std::string msg) noexcept;
+    explicit BadFileNameException(std::string msg) noexcept;
     [[nodiscard]] auto what() const noexcept -> const char * override;
 };
 

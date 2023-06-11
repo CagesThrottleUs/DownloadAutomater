@@ -6,8 +6,8 @@
 
 #include <utility>
 
-auto jsonKeyValueNotFoundException::what() const noexcept -> const char * {
+auto JsonKeyValueNotFoundException::what() const noexcept -> const char * {
     return msg.c_str();
 }
 
-jsonKeyValueNotFoundException::jsonKeyValueNotFoundException(std::string msg) : msg(std::move(msg)) {}
+JsonKeyValueNotFoundException::JsonKeyValueNotFoundException(std::string msg) : msg(std::move(msg)) {}

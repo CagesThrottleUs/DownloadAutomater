@@ -13,7 +13,7 @@ class KeyValuePairMismatchException: virtual public std::exception{
     std::string msg;
 public:
     explicit KeyValuePairMismatchException(std::string  _msg);
-    [[nodiscard]] const char * what() const noexcept override;
+    [[nodiscard]] auto what() const noexcept -> const char * override;
 };
 
 
