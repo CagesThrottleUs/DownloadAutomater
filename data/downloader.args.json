@@ -59,9 +59,21 @@
   ],
   "freqMatcher": {
     "option": "--max-downloads",
+    "value": "",
     "includeInCaseOfFail": true
   },
-  "BadOptionsfailure": {
-    "options": [{ "option": "--verbose" }, { "option": "--update" }]
+  "BadOptionsFailure": {
+    "options": [
+      {
+        "option": "--verbose",
+        "value": "",
+        "includeInCaseOfFail": true
+      },
+      {
+        "option": "--update",
+        "value": "",
+        "includeInCaseOfFail": true
+      }
+    ]
   }
 }
