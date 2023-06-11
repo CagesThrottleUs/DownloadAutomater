@@ -17,4 +17,6 @@ llvm-include-order,
 -misc-non-private-member-variables-in-classes,
 -openmp-*,
 openmp-use-default-none,
--portability-restrict-system-includes'
+-portability-restrict-system-includes
+-google-runtime-int
+-cppcoreguidelines-owning-memory'
