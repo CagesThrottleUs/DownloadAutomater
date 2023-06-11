@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_CXX_FLAGS -Wall)
 set(CMAKE_CXX_FLAGS -Wextra)
+set(CMAKE_CXX_FLAGS -pthread)
 
 add_executable(
         DownloadAutomater
@@ -21,6 +22,8 @@ add_executable(
         src/keyValuePairMismatchException.hpp
         src/jsonKeyValueNotFoundException.cpp
         src/jsonKeyValueNotFoundException.hpp
-)
+        src/channels.cpp
+        src/channels.hpp
+        src/threadUtilities.cpp src/threadUtilities.hpp src/downloader.cpp src/downloader.hpp src/trie.cpp src/trie.hpp)
 
 file(COPY data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
