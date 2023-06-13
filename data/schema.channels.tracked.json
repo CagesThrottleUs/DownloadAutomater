@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "channels": {
+      "description": "This is where you will add your different channel object to download",
+      "type": "array",
+      "items": {
+        "description": "Each Channel Item object description has three things - name, link and frequency of download",
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "The Channel Name that you want to see appearing",
+            "type": "string"
+          },
+          "link": {
+            "description": "The webpage link to that channel",
+            "type": "string"
+          },
+          "frequency": {
+            "description": "The number of videos to be downloaded/simulated to be downloaded",
+            "type": "integer",
+            "default": 1
+          }
+        },
+        "required": ["name", "link", "frequency"]
+      }
+    }
+  },
+  "required": ["channels"]
+}

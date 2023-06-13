@@ -1,79 +1,13 @@
 {
+  "$schema": "./schema.downloader.args.json",
   "executable": "./data/yt-dlp.exe",
-  "options": [
-    {
-      "option": "--abort-on-error",
-      "value": "",
-      "includeInCaseOfFail": false
-    },
-    {
-      "option": "--extract-audio",
-      "value": "",
-      "includeInCaseOfFail": true
-    },
-    {
-      "option": "--windows-filenames",
-      "value": "",
-      "includeInCaseOfFail": true
-    },
-    {
-      "option": "--progress",
-      "value": "",
-      "includeInCaseOfFail": true
-    },
-    {
-      "option": "--ffmpeg-location",
-      "value": "./data/",
-      "includeInCaseOfFail": true
-    },
-    {
-      "option": "--audio-format",
-      "value": "mp3",
-      "includeInCaseOfFail": true
-    },
-    {
-      "option": "--audio-quality",
-      "value": "320K",
-      "includeInCaseOfFail": true
-    },
-    {
-      "option": "--output",
-      "value": "{%(id)s}[%(uploader)s] %(title)s.%(ext)s",
-      "includeInCaseOfFail": true
-    },
-    {
-      "option": "--sponsorblock-remove",
-      "value": "all",
-      "includeInCaseOfFail": true
-    },
-    {
-      "option": "--download-archive",
-      "value": "archive.links.txt",
-      "includeInCaseOfFail": true
-    },
-    {
-      "option": "--paths",
-      "value": "./process/",
-      "includeInCaseOfFail": true
-    }
-  ],
+  "options": [],
   "freqMatcher": {
     "option": "--max-downloads",
     "value": "",
     "includeInCaseOfFail": true
   },
   "BadOptionsFailure": {
-    "options": [
-      {
-        "option": "--verbose",
-        "value": "",
-        "includeInCaseOfFail": true
-      },
-      {
-        "option": "--update",
-        "value": "",
-        "includeInCaseOfFail": true
-      }
-    ]
+    "options": []
   }
 }

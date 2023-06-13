@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "executable": {
+      "description": "The location of downloaded executable, either full name or relative to the executable",
+      "type": "string",
+      "default": "./data/yt-dlp.exe"
+    },
+    "options": {
+      "description": "The argument options passed to downloader, must be an object of Option Type.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "option": {
+            "description": "The name of argument, look at github.com/yt-dlp/yt-dlp for default",
+            "type": "string"
+          },
+          "value": {
+            "description": "The value associated with argument",
+            "type": "string",
+            "default": ""
+          },
+          "includeInCaseOfFail": {
+            "description": "Is this option included in the safe mode file?",
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "required": ["option", "value", "includeInCaseOfFail"]
+      }
+    },
+    "freqMatcher": {
+      "type": "object",
+      "properties": {
+        "option": {
+          "description": "The name of argument, look at github.com/yt-dlp/yt-dlp for default",
+          "type": "string"
+        },
+        "value": {
+          "description": "The value associated with argument",
+          "type": "string",
+          "default": ""
+        },
+        "includeInCaseOfFail": {
+          "description": "Is this option included in the safe mode file?",
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "required": ["option", "value", "includeInCaseOfFail"]
+    },
+    "BadOptionsFailure": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "description": "Extra option to be added in case of failures",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "option": {
+              "description": "The name of argument, look at github.com/yt-dlp/yt-dlp for default",
+              "type": "string"
+            },
+            "value": {
+              "description": "The value associated with argument",
+              "type": "string",
+              "default": ""
+            },
+            "includeInCaseOfFail": {
+              "description": "Is this option included in the safe mode file?",
+              "type": "boolean",
+              "default": true
+            },
+            "required": ["option", "value", "includeInCaseOfFail"]
+          }
+        }
+      },
+      "required": ["options"]
+    }
+  },
+  "required": ["executable", "options", "freqMatcher", "BadOptionsFailure"]
+}
