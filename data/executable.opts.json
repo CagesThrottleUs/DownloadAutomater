@@ -8,7 +8,7 @@
       "names": "./data/archive.names.txt"
     },
     "generators": {
-      "names": "./data/generateArchiveNames.py"
+      "names": "./data/generateArchiveNamesFromSrc.py"
     }
   },
   "executionEngine": {
