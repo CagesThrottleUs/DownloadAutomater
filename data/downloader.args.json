@@ -1,6 +1,6 @@
 {
   "$schema": "./schema.downloader.args.json",
-  "executable": "./data/yt-dlp.exe",
+  "executable": "./bin/yt-dlp.exe",
   "options": [],
   "freqMatcher": {
     "option": "--max-downloads",

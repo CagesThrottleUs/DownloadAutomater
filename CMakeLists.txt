@@ -27,3 +27,5 @@ add_executable(
         src/threadUtilities.cpp src/threadUtilities.hpp src/downloader.cpp src/downloader.hpp src/trie.cpp src/trie.hpp)
 
 file(COPY data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY bin DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY scripts DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
