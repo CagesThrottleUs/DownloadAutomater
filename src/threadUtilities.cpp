@@ -4,6 +4,7 @@
 
 #include "threadUtilities.hpp"
 #include <iostream>
+#include <thread>
 
 void fillAndMix(Channels& channels, const std::string& path, int& retStatus){
     try{
@@ -23,4 +24,35 @@ void populateTrie(Trie* trie,const std::string& path, int &retStatus){
         std::cout << e.what() << std::endl;
         return;
     }
+}
+
+void runAllThreadCommands(Channels &channels,Downloader& downloader, Trie* trie, execOptions& execData, int& returnStatus){
+
+    // Found this interesting behaviour https://stackoverflow.com/a/65358074/13496837
+    std::thread fillChannelAndMix(
+            fillAndMix,
+            std::ref(channels),
+            std::cref(execData.getChannelsPath()),
+            std::ref(returnStatus)
+    );
+
+
+    std::thread fillDownloader(
+            &Downloader::fill,
+            &downloader,
+            std::cref(execData.getDownloaderPath()),
+            std::ref(returnStatus)
+    );
+
+
+    std::thread trieMaker(
+            populateTrie,
+            trie,
+            std::cref((execData.getArchiveNamePath())),
+            std::ref(returnStatus)
+    );
+
+    fillChannelAndMix.join();
+    fillDownloader.join();
+    trieMaker.join();
 }

@@ -26,33 +26,9 @@ auto main() -> int {
     }
 
     Channels channels;
-    // Found this interesting behaviour https://stackoverflow.com/a/65358074/13496837
-    std::thread fillChannelAndMix(
-            fillAndMix,
-            std::ref(channels),
-            std::cref(dataAndDirectoryOptions.getChannelsPath()),
-            std::ref(returnStatus)
-    );
-
     Downloader downloader;
-    std::thread fillDownloader(
-            &Downloader::fill,
-            &downloader,
-            std::cref(dataAndDirectoryOptions.getDownloaderPath()),
-            std::ref(returnStatus)
-    );
-
     Trie* trie = new Trie();
-    std::thread trieMaker(
-            populateTrie,
-            trie,
-            std::cref((dataAndDirectoryOptions.getArchiveNamePath())),
-            std::ref(returnStatus)
-    );
-
-    fillChannelAndMix.join();
-    fillDownloader.join();
-    trieMaker.join();
+    runAllThreadCommands(channels, downloader, trie, dataAndDirectoryOptions, returnStatus);
 
     //TODO: Safe Trie operations and comparison against the archive file
     //TODO: start with playlist operation - complete and save and all safety.
