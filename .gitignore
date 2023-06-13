@@ -123,10 +123,6 @@ fabric.properties
 *.map
 *.exp
 
-# Precompiled Headers
-
-# Libraries
-
 # Shared objects (inc. Windows DLLs)
 *.so.*
 
@@ -234,3 +230,9 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# custom files
+channels.tracked.custom.json
+downloader.args.custom.json
+archive.links.custom.txt
+archive.names.custom.txt
