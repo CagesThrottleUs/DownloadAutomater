@@ -234,5 +234,5 @@ Temporary Items
 # custom files
 channels.tracked.custom.json
 downloader.args.custom.json
-archive.links.custom.txt
-archive.names.custom.txt
+archive.links.txt
+archive.names.txt

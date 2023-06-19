@@ -5,7 +5,7 @@
     "executable": {
       "description": "The location of downloaded executable, either full name or relative to the executable",
       "type": "string",
-      "default": "./data/yt-dlp.exe"
+      "default": "./bin/yt-dlp.exe"
     },
     "options": {
       "description": "The argument options passed to downloader, must be an object of Option Type.",

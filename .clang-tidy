@@ -9,6 +9,7 @@ cppcoreguidelines-*,
 google-*,
 hicpp-*,
 llvm-*,
+-llvm-header-guard
 modernize-*,
 performance-*,
 readability-*,

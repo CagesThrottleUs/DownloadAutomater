@@ -1,27 +1,45 @@
 {
   "directories": ["temp", "processed"],
   "data": {
-    "channels": "./data/channels.tracked.json",
-    "downloader": "./data/downloader.args.json",
+    "channels": "./data/channels.tracked.custom.json",
+    "downloader": "./data/downloader.args.custom.json",
     "archive": {
       "links": "./data/archive.links.txt",
       "names": "./data/archive.names.txt"
-    },
-    "generators": {
-      "names": "./scripts/generateArchiveNamesFromSrc.py"
     }
   },
+  "scripts": [
+    {
+      "name": "./scripts/generateArchiveNamesFromSrc.py",
+      "args": [
+        "D:\\Music\\",
+        "./data/archive.names.txt"
+      ]
+    },
+    {
+      "name": "./scripts/jsonNameCreator.py",
+      "args": [
+        "./processed",
+        "file.json"
+      ]
+    }
+  ],
   "executionEngine": {
     "playlist": {
       "execute?": true,
       "default": "https://www.youtube.com/playlist?list=PLYo4GDM-6t3PgIxb-VyCK6ahNLomxqbJA",
-      "outputIn": "processed",
+      "outputIn": "./processed",
       "runSafeAfterFail": true,
+      "shellLocation": "./temp/",
+      "shellName": "playlist.Executive.sh",
+      "shellNameSafe": "playlist.Executive.Safe.sh",
+      "shouldUpdateNameArchive": true,
+      "renamingFilesUI": "todo",
       "outputMove": "D:\\Music\\"
     },
     "channel": {
       "execute?": true,
-      "outputIn": "processed",
+      "outputIn": "./processed",
       "runSafeAfterFail": true,
       "launchPlaylist": {
         "WARN": "Please rename the files WITHOUT DELETING ids wrapped in {} - \n",
@@ -37,10 +55,6 @@
     "updateArchiveNamesWithGenerator": {
       "execute?": true,
       "locationOfFiles": "D:\\Music\\",
-      "provideArchiveFileFromData": true
-    },
-    "remixArchiveLinksDirectly": {
-      "execute?": true,
       "provideArchiveFileFromData": true
     }
   }

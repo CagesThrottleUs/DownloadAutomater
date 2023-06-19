@@ -3,7 +3,7 @@
 #
 # This may not be required in case you are creating your own new playlist. Just start downloading.
 #
-# To run - python ./data/generateArchiveNames.py <folderLocation> <archiveName> at Github Directory level.
+# To run - python ./scripts/generateArchiveNames.py <folderLocation> <archiveName> at Github Directory level.
 #
 # Prerequisites - Python3, Natsort
 
@@ -17,5 +17,4 @@ files = os_sorted(files)
 with open(sys.argv[2], mode="w", encoding="utf-8") as f:
     for file in files:
         file = file.removesuffix(".mp3")
-        print(file)
         print(file, file=f)
