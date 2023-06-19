@@ -14,17 +14,17 @@ void execDataOptions::fill(const json& harvestedData, int &retStatus, const std:
     std::string keyName;
     try{
         // Fill Channels JSON
-        std::cout << "\nFinding the Channels Data JSON file" << std::endl;
+//        std::cout << "\nFinding the Channels Data JSON file" << std::endl;
         keyName = "channels";
         harvestedData.at(keyName).get_to(channelsJson);
 
         // Fill DownloaderOpts JSON
-        std::cout << "Finding the Downloader Data JSON file" << std::endl;
+//        std::cout << "Finding the Downloader Data JSON file" << std::endl;
         keyName = "downloader";
         harvestedData.at(keyName).get_to(downloaderJson);
 
         // Archive Key-Value Pairs
-        std::cout << "Loading Archive File Information" << std::endl;
+//        std::cout << "Loading Archive File Information" << std::endl;
         keyName = "archive";
         json archiveData = harvestedData.at(keyName);
         for(const auto &[key, value]: archiveData.items()){
@@ -32,7 +32,7 @@ void execDataOptions::fill(const json& harvestedData, int &retStatus, const std:
         }
 
         // Generator Key-Value Pairs
-        std::cout << "Loading Generators File information" << std::endl;
+//        std::cout << "Loading Generators File information" << std::endl;
         keyName = "generators";
         json generatorData = harvestedData.at(keyName);
         for(const auto &[key, value]: generatorData.items()){
@@ -56,7 +56,7 @@ void execDataOptions::fill(const json& harvestedData, int &retStatus, const std:
 }
 
 auto execDataOptions::matchArchivesAndGeneratorKeys() -> bool {
-    std::cout << "\nNow matching Generator Keys with Archive's" << std::endl;
+//    std::cout << "\nNow matching Generator Keys with Archive's" << std::endl;
     std::unordered_set<std::string> hay;
     for (auto &[key, value]: archives) {
         hay.insert(key);

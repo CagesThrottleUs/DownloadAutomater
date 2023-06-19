@@ -5,6 +5,7 @@
 #include "trie.hpp"
 #include "badFileNameException.hpp"
 #include "exitCode.hpp"
+#include "fileErrorException.hpp"
 #include <cstdio>
 #include <cstring>
 #include <cuchar>
@@ -15,13 +16,14 @@
 
 
 void Trie::fill(const std::string &srcLocation, int &retStatus) {
-    std::cout << "\nChecking if File exists Trie::fill()" << std::endl;
+//    std::cout << "\nChecking if File exists Trie::fill()" << std::endl;
     const std::filesystem::path path(srcLocation);
     if (!std::filesystem::exists(path)) {
         retStatus = BadFileName;
         throw BadFileNameException(path.string() + " NOT FOUND, please enter the correct name");
     }
     std::cout << "FILE FOUND" << std::endl;
+    sourceFile = srcLocation;
 
     std::basic_ifstream<char32_t> file(srcLocation.c_str());
     std::basic_string<char32_t> str;
@@ -33,7 +35,7 @@ void Trie::fill(const std::string &srcLocation, int &retStatus) {
     file.close();
 }
 
-Trie::Trie() : head(new TrieNode()) {
+Trie::Trie() : head(new TrieNode()), sourceFile("") {
 
 }
 
@@ -72,17 +74,18 @@ auto Trie::search(const std::u32string &str) -> bool {
     return curr->isTerm;
 }
 
-void Trie::printTrie(const std::string &src) {
+void Trie::printTrie() {
     if(head == nullptr){
         return;
     }
-    FILE* fout = fopen(src.c_str(),"w");
+    FILE* fout = fopen(sourceFile.c_str(),"w");
     std::vector<std::u32string> const allStrings = findStrings();
     for(const auto& str: allStrings){
         printer(str,fout);
     }
     if(fclose(fout) != 0){
-        std::cout << "Error Closing File\n" << std::endl;
+        std::cout << "\n" << std::endl;
+        throw FileErrorException("Error Closing File from Trie");
     }
 }
 

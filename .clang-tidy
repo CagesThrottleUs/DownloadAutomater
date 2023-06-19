@@ -1,22 +1,16 @@
 # Generated from CLion Inspection settings
 ---
-Checks: '*,
--abseil-*,
--altera-*,
--android-*,
--darwin-*,
--fuchsia-*,
--linuxkernel-*,
--objc-*,
--zircon-*,
--llvm-*,
-llvm-include-order,
--llvmlibc-*,
--misc-unused-alias-decls,
--misc-use-anonymous-namespace,
--misc-non-private-member-variables-in-classes,
--openmp-*,
-openmp-use-default-none,
--portability-restrict-system-includes
--google-runtime-int
--cppcoreguidelines-owning-memory'
+Checks: '-*,
+boost-*,
+bugprone-*,
+cert-*,
+concurrency-*,
+cppcoreguidelines-*,
+google-*,
+hicpp-*,
+llvm-*,
+modernize-*,
+performance-*,
+readability-*,
+misc-*,
+-misc-unused-alias-decls'

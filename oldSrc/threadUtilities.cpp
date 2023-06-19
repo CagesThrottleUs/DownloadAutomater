@@ -8,7 +8,7 @@
 
 void fillAndMix(Channels& channels, const std::string& path, int& retStatus){
     try{
-        std::cout << "The Program is right now trying to fill the channel information!" << std::endl;
+//        std::cout << "The Program is right now trying to fill the channel information!" << std::endl;
         channels.fill(path, retStatus);
     } catch(const std::exception& exception){
         std::cout << exception.what() << std::endl;
@@ -17,7 +17,7 @@ void fillAndMix(Channels& channels, const std::string& path, int& retStatus){
     channels.mix();
 }
 
-void populateTrie(Trie* trie,const std::string& path, int &retStatus){
+void populateTrie(Trie* trie, const std::string& path, int &retStatus){
     try{
         trie->fill(path, retStatus);
     } catch (std::exception& e){
@@ -52,7 +52,13 @@ void runAllThreadCommands(Channels &channels,Downloader& downloader, Trie* trie,
             std::ref(returnStatus)
     );
 
+    std::thread directoryCreator(
+            &execOptions::createDirectories,
+            &execData
+    );
+
     fillChannelAndMix.join();
     fillDownloader.join();
     trieMaker.join();
+    directoryCreator.join();
 }

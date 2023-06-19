@@ -12,19 +12,19 @@
 using json = nlohmann::json;
 
 void execOptions::fill(const std::string &srcLocation, int &retStatus) {
-    std::cout << "Checking if File exists (execOptions) \n" << std::endl;
+//    std::cout << "Checking if File exists \n" << std::endl;
     const std::filesystem::path path(srcLocation);
     if(!std::filesystem::exists(path)){
         retStatus = BadFileName;
         throw BadFileNameException(path.string() + " NOT FOUND, please enter the correct name");
     }
-    std::cout << "FILE FOUND" << std::endl;
+//    std::cout << "FILE FOUND" << std::endl;
     std::ifstream myFile(srcLocation);
     json data = json::parse(myFile);
 
     try{
         // Fill Directories data
-        std::cout << "\nTrying to fill Directories data" << std::endl;
+//        std::cout << "\nTrying to fill Directories data" << std::endl;
         data.at("directories").get_to(directories);
     } catch (const std::exception &exception) {
         std::cout << exception.what() << std::endl;
@@ -35,7 +35,7 @@ void execOptions::fill(const std::string &srcLocation, int &retStatus) {
     }
 
     // Fill Executable Data Options
-    std::cout << "Trying to fill Data Options for configurations" << std::endl;
+//    std::cout << "Trying to fill Data Options for configurations" << std::endl;
     json const execDataOptsHarvested = data.at("data");
     execDataOptions.fill(execDataOptsHarvested, retStatus, srcLocation);
 
@@ -60,6 +60,21 @@ auto execOptions::getArchiveNamePath() -> const std::string & {
 
 auto execOptions::getGeneratorNamePath() -> const std::string & {
     return execDataOptions.getGeneratorFileName("names");
+}
+
+void execOptions::createDirectories() {
+//    std::cout << "\nAttempting to create directories..." << std::endl;
+    for(const auto& directory: directories){
+        std::error_code errorCode;
+        bool const status = std::filesystem::create_directory(std::filesystem::path(directory), errorCode);
+        if(!status){
+            std::cout << "Creating Directories for " << directory << " failed" << std::endl;
+            std::cout << "\tValue: " << errorCode.value() << std::endl;
+            std::cout << "\tMessage: " << errorCode.message() << std::endl;
+        }
+        errorCode.clear();
+    }
+//    std::cout << "createDirectories() done!" << std::endl;
 }
 
 

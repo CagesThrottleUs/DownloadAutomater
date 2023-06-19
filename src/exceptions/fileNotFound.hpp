@@ -1,0 +1,14 @@
+//
+// Created by CagesThrottleUs on 19-06-2023.
+//
+
+#ifndef DOWNLOADAUTOMATER_FILENOTFOUND_HPP
+#define DOWNLOADAUTOMATER_FILENOTFOUND_HPP
+
+
+class FileNotFound {
+
+};
+
+
+#endif //DOWNLOADAUTOMATER_FILENOTFOUND_HPP

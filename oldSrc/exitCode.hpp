@@ -9,7 +9,9 @@ enum exitCode {
     Success,
     BadFileName,
     JsonKeyValueNotFound,
-    KeyPairsMismatch
+    KeyPairsMismatch,
+    BadURLForm,
+    CFileErrors
 };
 
 #endif //DOWNLOADAUTOMATER_EXITCODE_HPP

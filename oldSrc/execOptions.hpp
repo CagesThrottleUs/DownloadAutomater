@@ -21,6 +21,7 @@ public:
     auto getArchiveLinkPath() -> const std::string&;
     auto getArchiveNamePath() -> const std::string&;
     auto getGeneratorNamePath() -> const std::string&;
+    void createDirectories();
 };
 
 

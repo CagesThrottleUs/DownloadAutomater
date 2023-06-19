@@ -22,12 +22,13 @@ struct TrieNode{
 
 class Trie {
     TrieNode* head;
+    std::string sourceFile;
 public:
     explicit Trie();
     void fill(const std::string& path, int &retStatus);
     void insert(const std::basic_string<char32_t>& str);
     auto search(const std::u32string& str) -> bool;
-    void printTrie(const std::string& src);
+    void printTrie();
     virtual ~Trie();
 private:
     static void printer(const std::u32string& str, FILE* fOut);

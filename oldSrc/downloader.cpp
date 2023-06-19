@@ -64,7 +64,7 @@ iml::DownloaderArgs::DownloaderArgs() = default;
 Downloader::Downloader() = default;
 
 void Downloader::fill(const std::string &path, int &retStatus) {
-    std::cout << "\nThe program right now is trying to fill Downloader Arguments" << std::endl;
+//    std::cout << "\nThe program right now is trying to fill Downloader Arguments" << std::endl;
     const std::filesystem::path dataPath(path);
     if(!std::filesystem::exists(dataPath)){
         retStatus = BadFileName;
