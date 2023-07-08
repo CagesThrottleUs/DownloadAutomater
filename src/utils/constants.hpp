@@ -26,13 +26,14 @@
 
 /**
  * @file utils/constants.hpp
- * @brief This file is the program and constant data values used in program.
+ * @brief This file is the program and constant configuration values used in program.
  */
 #ifndef UTILS_CONSTANTS_HPP
 #define UTILS_CONSTANTS_HPP
 
 #include <fstream>
 #include <string>
+#include <unordered_map>
 
 /**
  * @brief defines all the program constants to be used
@@ -45,10 +46,30 @@
  */
 namespace constants{
     /**
-     * @brief the file that will be accessed to fill all the executable centric data.
+     * @brief the file that will be accessed to fill all the executable centric configuration.
      */
     const std::string CONFIG_FILE = "./data/executable.opts.json";
+    /**
+     * @brief location for file to dump all debug - same at the executable level.
+     */
     const std::string DEBUG_FILE = "./debug.txt";
+    /**
+     * @brief This vector contains all the keys that match with CONFIG_FILE
+     */
+    const std::unordered_map<std::string, std::string> CONFIG_KEY_NAMES = {
+            {
+                "directories",
+                "folder"
+            },
+            {
+                "dataPaths",
+                "sources"
+            },
+            {
+                "channels",
+                "channels"
+            }
+    };
 } // namespace constants
 
 #endif //UTILS_CONSTANTS_HPP

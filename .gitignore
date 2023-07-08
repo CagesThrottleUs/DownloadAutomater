@@ -232,7 +232,8 @@ Temporary Items
 .apdisk
 
 # custom files
-channels.tracked.custom.json
+Channels.tracked.custom.json
 downloader.args.custom.json
 archive.links.txt
 archive.names.txt
+debug.txt

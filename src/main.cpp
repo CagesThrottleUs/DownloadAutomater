@@ -24,8 +24,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#include "utils/exitCode.hpp"
+#include "configuration//handler.hpp"
+#include "exceptions/fileNotFound.hpp"
 #include "utils/constants.hpp"
+#include "utils/exitCode.hpp"
+#include "utils/miscFunctions.hpp"
 #include <fstream>
 #include <iostream>
 
@@ -38,10 +41,43 @@ auto main() -> int{
     auto *orig = std::clog.rdbuf(out.rdbuf());
 
     ExitCode code = ExitCode::RETURN_OK;
-    code = ExitCode::RETURN_FILE_NOT_FOUND;
+
+    // Check if file exists
+    try {
+        mainDriver::checkForFilesAndUpdateReturnStatus(constants::CONFIG_FILE, code);
+    } catch (const FileNotFoundException &exception) {
+        return mainDriver::errorCodedEnding(exception, code);
+    }
+
+    // Load configuration prep
+    std::ifstream configInJson(constants::CONFIG_FILE);
+    ConfigurationHandler configurationHandler;
+
+    // Actually filling configuration
+    try{
+        configurationHandler.fill(configInJson, code);
+    } catch(const std::exception& err){
+        return mainDriver::errorCodedEnding(err, code);
+    }
+    //Unload all configuration
+    configInJson.close();
+
+    // Please note that when both start() and stop() are active
+    // Then you will not see result during debug
+    // Safely start all configuration structures
+    configurationHandler.start();
+
+    // Safely stop all Configuration properties
+    configurationHandler.stop();
 
     // Put back the std::clog and close it
     std::clog.rdbuf(orig);
     out.close();
+
+    mainDriver::exitMessage(code);
     return static_cast<int>(code);
 }
+
+/**
+ * @todo Thread works - 1. fill Downloader Data structure using threads
+*/

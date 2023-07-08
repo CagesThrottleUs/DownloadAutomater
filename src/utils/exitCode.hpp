@@ -28,9 +28,9 @@
 #define UTILS_EXITCODE_HPP
 
 /**
- * @brief Describes the exit codes for program
+ * @brief Describes the stop codes for program
  * @author Lakshya
- * @details Among the various different exit code each of the code may have their
+ * @details Among the various different stop code each of the code may have their
  * own description attached to their name and can be used along with exceptions.
  * @copyright MIT
  * @example ExitCode is declared as a scoped enumeration -
@@ -46,7 +46,31 @@ enum class ExitCode{
     /**
      * @brief The intended file was not found, use with File Finding exception
      */
-    RETURN_FILE_NOT_FOUND
+    RETURN_FILE_NOT_FOUND = 100,
+    /**
+     * @brief Something went wrong while trying to create a Directory, use with DirectoryExceptions
+     */
+    RETURN_FAILED_DIRECTORY_CREATION,
+    /**
+     * @brief Something went wrong while trying to delete a Directory, use with DirectoryExceptions
+     */
+    RETURN_FAILED_DIRECTORY_DELETION,
+    /**
+     * @brief A strong exception raised during json parsing - provided with json parse error to handle
+     */
+    RETURN_JSON_PARSE_ERROR,
+    /**
+     * @brief This json error refers to key being out side of range
+     */
+    RETURN_JSON_OUT_OF_RANGE_ERROR,
+    /**
+     * @brief Json Error for different types
+     */
+    RETURN_JSON_TYPE_ERROR,
+    /**
+     * @brief Return type set when the given string is not a proper URL. Use with BadURLFormException.
+     */
+    RETURN_BAD_URL_FORMAT,
 };
 
 #endif //UTILS_EXITCODE_HPP

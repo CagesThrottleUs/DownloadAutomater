@@ -1,5 +1,5 @@
 //
-// Created by CagesThrottleUs on 19-06-2023.
+// Created by CagesThrottleUs on 21-06-2023.
 //
 
 // MIT License
@@ -24,32 +24,29 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef EXCEPTIONS_FILENOTFOUND_HPP
-#define EXCEPTIONS_FILENOTFOUND_HPP
+#ifndef EXCEPTION_DIRECTORY_HPP
+#define EXCEPTION_DIRECTORY_HPP
 
 #include <exception>
-#include <filesystem>
 #include <string>
 
 /**
- * @class FileNotFoundException fileNotFound.hpp "exceptions/fileNotFound.hpp"
- * @brief This is an exception class associated if a file exists or not.
+ * @class DirectoryExceptions
+ * @brief This is an exception class associated if a directory is created or not
  * @author Lakshya
  * @implements @c std::exception
  */
-class FileNotFoundException: virtual public std::exception{
+class DirectoryExceptions: virtual public std::exception {
     /**
-     * @memberof FileNotFoundException
+     * @memberof DirectoryExceptions
      * @brief string to hold the message associated with exception
      * @type @c std::string
      */
     std::string msg;
 public:
-    explicit FileNotFoundException(std::string msg);
+    explicit DirectoryExceptions(std::string msg);
     [[nodiscard]] auto what() const noexcept -> const char * override;
-    static auto checkIfFileExists(const std::string& srcFileLocation)  noexcept -> bool;
-    static auto createPath(const std::string &basicString) noexcept -> std::filesystem::path;
 };
 
 
-#endif //EXCEPTIONS_FILENOTFOUND_HPP
+#endif //EXCEPTION_DIRECTORY_HPP

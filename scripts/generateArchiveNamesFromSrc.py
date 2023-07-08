@@ -1,5 +1,5 @@
 # This files main goal is to fill from A source Location. This is the first time script as the next time,
-# only the Trie data will be used to upgrade the data file directly as it is closer to program.
+# only the Trie configuration will be used to upgrade the configuration file directly as it is closer to program.
 #
 # This may not be required in case you are creating your own new playlist. Just start downloading.
 #

@@ -71,7 +71,7 @@ void Downloader::fill(const std::string &path, int &retStatus) {
         throw BadFileNameException(dataPath.string() + " was NOT FOUND, please enter the correct name!");
     }
 
-    // Start filling data with json
+    // Start filling configuration with json
     std::ifstream myFile(path);
     json const data = json::parse(myFile);
 
@@ -82,7 +82,7 @@ void Downloader::fill(const std::string &path, int &retStatus) {
         keyName = "executable";
         data.at(keyName).get_to(executablePath);
 
-        // Fill the options data
+        // Fill the options configuration
         keyName = "options";
         json optionList = data.at(keyName);
         for(const auto& ele: optionList){

@@ -63,7 +63,7 @@ void Channels::fill(const std::string &path, int &retStatus) {
         throw BadFileNameException(dataPath.string() + " was NOT FOUND, please enter the correct name!");
     }
 
-    // Start filling data with json
+    // Start filling configuration with json
     std::ifstream myFile(path);
     json const data = json::parse(myFile);
     json channelList;

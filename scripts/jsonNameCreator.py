@@ -16,9 +16,11 @@ source = sys.argv[1]
 files = os.listdir(source)
 files = os_sorted(files)
 with open(sys.argv[2], mode="w", encoding="utf-8") as f:
-    x = {"data": []}
+    x = {"configuration": []}
     for file in files:
+        size = os.path.getsize(source + "/" + file)
         file = file.removesuffix(".mp3")  # Format - {%id}FullName and %id is a6QqkEsGxNY (11 chars)
-        temp = {"id": file[1:12], "name": file[13:], "rename": ""}
-        x["data"].append(temp)
-    json.dumps(x, file=f, ensure_ascii=False, indent=4)
+        temp = {"id": file[1:12], "name": file[13:], "rename": "", "size": size}
+        x["configuration"].append(temp)
+    content = json.dumps(x, ensure_ascii=False, indent=4)
+    f.write(content)

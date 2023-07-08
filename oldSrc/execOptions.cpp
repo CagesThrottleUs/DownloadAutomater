@@ -23,8 +23,8 @@ void execOptions::fill(const std::string &srcLocation, int &retStatus) {
     json data = json::parse(myFile);
 
     try{
-        // Fill Directories data
-//        std::cout << "\nTrying to fill Directories data" << std::endl;
+        // Fill Directories configuration
+//        std::cout << "\nTrying to fill Directories configuration" << std::endl;
         data.at("directories").get_to(directories);
     } catch (const std::exception &exception) {
         std::cout << exception.what() << std::endl;
@@ -36,7 +36,7 @@ void execOptions::fill(const std::string &srcLocation, int &retStatus) {
 
     // Fill Executable Data Options
 //    std::cout << "Trying to fill Data Options for configurations" << std::endl;
-    json const execDataOptsHarvested = data.at("data");
+    json const execDataOptsHarvested = data.at("configuration");
     execDataOptions.fill(execDataOptsHarvested, retStatus, srcLocation);
 
     myFile.close();

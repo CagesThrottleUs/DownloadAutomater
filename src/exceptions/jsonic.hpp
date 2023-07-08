@@ -1,5 +1,5 @@
 //
-// Created by CagesThrottleUs on 19-06-2023.
+// Created by CagesThrottleUs on 22-06-2023.
 //
 
 // MIT License
@@ -24,32 +24,29 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef EXCEPTIONS_FILENOTFOUND_HPP
-#define EXCEPTIONS_FILENOTFOUND_HPP
+#ifndef EXCEPTIONS_JSONIC_HPP
+#define EXCEPTIONS_JSONIC_HPP
 
 #include <exception>
-#include <filesystem>
 #include <string>
 
 /**
- * @class FileNotFoundException fileNotFound.hpp "exceptions/fileNotFound.hpp"
- * @brief This is an exception class associated if a file exists or not.
+ * @class JsonicExceptions
+ * @brief This is an exception class associated with all nlohmann::json Exceptions
  * @author Lakshya
  * @implements @c std::exception
  */
-class FileNotFoundException: virtual public std::exception{
+class JsonicExceptions: virtual public std::exception {
     /**
-     * @memberof FileNotFoundException
+     * @memberof JsonicExceptions
      * @brief string to hold the message associated with exception
      * @type @c std::string
      */
     std::string msg;
 public:
-    explicit FileNotFoundException(std::string msg);
+    explicit JsonicExceptions(std::string msg);
     [[nodiscard]] auto what() const noexcept -> const char * override;
-    static auto checkIfFileExists(const std::string& srcFileLocation)  noexcept -> bool;
-    static auto createPath(const std::string &basicString) noexcept -> std::filesystem::path;
 };
 
 
-#endif //EXCEPTIONS_FILENOTFOUND_HPP
+#endif //EXCEPTIONS_JSONIC_HPP

@@ -10,7 +10,7 @@
 #include <thread>
 
 
-const std::string config = "./data/executable.opts.json";
+const std::string config = "./configuration/executable.opts.json";
 
 auto main() -> int {
     int returnStatus = Success;

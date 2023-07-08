@@ -1,5 +1,5 @@
 //
-// Created by CagesThrottleUs on 19-06-2023.
+// Created by CagesThrottleUs on 23-06-2023.
 //
 
 // MIT License
@@ -24,32 +24,37 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef EXCEPTIONS_FILENOTFOUND_HPP
-#define EXCEPTIONS_FILENOTFOUND_HPP
+/**
+ * @file configuration/dataPaths.hpp
+ * @brief This file describes the simple locations for the different paths of configuration from which we will
+ * fill the other configuration formats
+ * @author Lakshya
+ */
 
-#include <exception>
-#include <filesystem>
+#ifndef CONFIGURATION_DATAPATHS_HPP
+#define CONFIGURATION_DATAPATHS_HPP
+
 #include <string>
 
-/**
- * @class FileNotFoundException fileNotFound.hpp "exceptions/fileNotFound.hpp"
- * @brief This is an exception class associated if a file exists or not.
- * @author Lakshya
- * @implements @c std::exception
- */
-class FileNotFoundException: virtual public std::exception{
-    /**
-     * @memberof FileNotFoundException
-     * @brief string to hold the message associated with exception
-     * @type @c std::string
-     */
-    std::string msg;
-public:
-    explicit FileNotFoundException(std::string msg);
-    [[nodiscard]] auto what() const noexcept -> const char * override;
-    static auto checkIfFileExists(const std::string& srcFileLocation)  noexcept -> bool;
-    static auto createPath(const std::string &basicString) noexcept -> std::filesystem::path;
-};
+namespace data {
 
+    class DataPaths {
+        std::string channels;
+        std::string downloader;
+        std::string linksIdentifier;
+        std::string titles;
+    public:
+        DataPaths();
+        [[nodiscard]] auto getChannels() const -> const std::string &;
+        void setChannels(const std::string &channels);
+        [[nodiscard]] auto getDownloader() const -> const std::string &;
+        void setDownloader(const std::string &downloader);
+        [[nodiscard]] auto getLinksIdentifier() const -> const std::string &;
+        void setLinksIdentifier(const std::string &linksIdentifier);
+        [[nodiscard]] auto getTitles() const -> const std::string &;
+        void setTitles(const std::string &titles);
+    };
 
-#endif //EXCEPTIONS_FILENOTFOUND_HPP
+} // namespace data
+
+#endif //CONFIGURATION_DATAPATHS_HPP

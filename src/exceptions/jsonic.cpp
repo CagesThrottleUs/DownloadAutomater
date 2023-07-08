@@ -1,5 +1,5 @@
 //
-// Created by CagesThrottleUs on 19-06-2023.
+// Created by CagesThrottleUs on 22-06-2023.
 //
 
 // MIT License
@@ -24,32 +24,26 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef EXCEPTIONS_FILENOTFOUND_HPP
-#define EXCEPTIONS_FILENOTFOUND_HPP
-
-#include <exception>
-#include <filesystem>
-#include <string>
+#include "jsonic.hpp"
+#include <utility>
 
 /**
- * @class FileNotFoundException fileNotFound.hpp "exceptions/fileNotFound.hpp"
- * @brief This is an exception class associated if a file exists or not.
+ * @brief Copies and moves the message for the class
  * @author Lakshya
- * @implements @c std::exception
+ * @param msg The message to be copied
  */
-class FileNotFoundException: virtual public std::exception{
-    /**
-     * @memberof FileNotFoundException
-     * @brief string to hold the message associated with exception
-     * @type @c std::string
-     */
-    std::string msg;
-public:
-    explicit FileNotFoundException(std::string msg);
-    [[nodiscard]] auto what() const noexcept -> const char * override;
-    static auto checkIfFileExists(const std::string& srcFileLocation)  noexcept -> bool;
-    static auto createPath(const std::string &basicString) noexcept -> std::filesystem::path;
-};
+JsonicExceptions::JsonicExceptions(std::string msg) : msg(std::move(msg)) {}
 
+/**
+ * @brief Tells the What the exception really was
+ * @author Lakshya
+ * @overload This overloads the std::exception's what
+ * @details The function will directly return from the std::string::c_str() functions,
+ * which is responsible for creating a constant pointer
+ * @return a pointer to a constant configuration from the message in string.
+ * @example @c std::cout << exception.what() << std::endl;
+ */
+auto JsonicExceptions::what() const noexcept -> const char * {
+    return msg.c_str();
+}
 
-#endif //EXCEPTIONS_FILENOTFOUND_HPP

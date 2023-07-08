@@ -31,19 +31,17 @@
  * @author Lakshya
  */
 
+#include "../utils/miscFunctions.hpp"
 #include "fileNotFound.hpp"
 #include <filesystem>
-#include <iostream>
 #include <utility>
 
 /**
  * @brief Copies and moves the message for the class
  * @author Lakshya
  * @param msg The message to be copied
- * @details Originally the constructor was supposed to just get the constant reference,
- * and copy and paste that to PRIVATE:msg but clang-tidy tells me to use std::move with copy
  */
-FileNotFound::FileNotFound(std::string msg) : msg(std::move(msg)) {}
+FileNotFoundException::FileNotFoundException(std::string msg) : msg(std::move(msg)) {}
 
 /**
  * @brief Tells the What the exception really was
@@ -51,10 +49,10 @@ FileNotFound::FileNotFound(std::string msg) : msg(std::move(msg)) {}
  * @overload This overloads the std::exception's what
  * @details The function will directly return from the std::string::c_str() functions,
  * which is responsible for creating a constant pointer
- * @return a pointer to a constant data from the message in string.
+ * @return a pointer to a constant configuration from the message in string.
  * @example @c std::cout << exception.what() << std::endl;
  */
-auto FileNotFound::what() const noexcept -> const char * {
+auto FileNotFoundException::what() const noexcept -> const char * {
     return msg.c_str();
 }
 
@@ -74,18 +72,33 @@ auto FileNotFound::what() const noexcept -> const char * {
  * @param srcFileLocation A string to source file location
  * @return boolean value that tells whether a file exists or not
  */
-auto FileNotFound::checkIfFileExists(const std::string &srcFileLocation) noexcept -> bool {
+auto FileNotFoundException::checkIfFileExists(const std::string &srcFileLocation) noexcept -> bool {
     try{
         const std::filesystem::path path = createPath(srcFileLocation);
         return std::filesystem::exists(path);
     } catch (const std::filesystem::filesystem_error& err){
-        std::clog << "[debug] In FileNotFound::checkIfFileExists() from exceptions/fileNotFound.cpp" << std::endl;
-        std::clog << "[debug] \t A FileSystem Error has occurred because of OS API Error" << std::endl;
-        std::clog << "[debug] \t Exact Reason - what(): " << err.what() << std::endl;
-        std::clog << "[debug] \t Exact Reason - path1(): " << err.path1() << std::endl;
-        std::clog << "[debug] \t Exact Reason - code().value(): " << err.code().value() << std::endl;
-        std::clog << "[debug] \t Exact Reason - code().message(): " << err.code().message() << std::endl;
-        std::clog << "[debug] \t Exact Reason - code().category(): " << err.code().category().name() << std::endl;
+        std::string msg;
+        mainDriver::appendMessagesForLog(msg,
+                                         "Exception caught - filesystem_error has occurred because of OS API Error"
+        );
+        mainDriver::appendMessagesForLog(msg,
+                                   "Exact Reason - what(): " + std::string(err.what())
+        );
+        mainDriver::appendMessagesForLog(msg,
+                                   "Exact Reason - path1(): " + err.path1().string()
+        );
+        mainDriver::appendMessagesForLog(msg,
+                                   "Exact Reason - code().value(): " + std::to_string(err.code().value())
+        );
+        mainDriver::appendMessagesForLog(msg,
+                                   "Exact Reason - code().message(): " + err.code().message()
+        );
+        mainDriver::appendMessagesForLog(msg,
+                                   "Exact Reason - code().category(): "
+                                   + std::string(err.code().category().name())
+        );
+
+        mainDriver::logUsingSourceLocation(msg);
     }
     return false;
 }
@@ -105,14 +118,23 @@ auto FileNotFound::checkIfFileExists(const std::string &srcFileLocation) noexcep
  * @c std::filesystem::path
  * object
  */
-auto FileNotFound::createPath(const std::string &basicString) noexcept -> std::filesystem::path {
+auto FileNotFoundException::createPath(const std::string &basicString) noexcept -> std::filesystem::path {
     try{
         std::filesystem::path path(basicString);
         return path;
     } catch (const std::exception& exception){
-        std::clog << "[debug] In createPath() from exceptions/fileNotFound.cpp" << std::endl;
-        std::clog << "[debug] \t An implementation defined exception has occurred!" << std::endl;
-        std::clog << "[debug] \t Exact reason - what(): " << exception.what() << std::endl;
+        std::string msg;
+        mainDriver::appendMessagesForLog(msg,
+                                         "Exception caught for std::filesystem::path value"
+        );
+        mainDriver::appendMessagesForLog(msg,
+                                         "An implementation defined exception has occurred - "
+                                         "check @cite for function!"
+        );
+        mainDriver::appendMessagesForLog(msg,
+                                   "Exact Reason - what()" + std::string(exception.what())
+        );
+        mainDriver::logUsingSourceLocation(msg);
     }
     return {"./ThisPath {} $ $$$ DEFINITELY DOES NOT EXIST"};
 }

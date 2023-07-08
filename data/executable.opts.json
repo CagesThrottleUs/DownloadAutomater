@@ -1,26 +1,29 @@
 {
-  "directories": ["temp", "processed"],
-  "data": {
+  "folder": {
+    "root": "./",
+    "names": ["temp", "processed"]
+  },
+  "sources": {
     "channels": "./data/channels.tracked.custom.json",
     "downloader": "./data/downloader.args.custom.json",
-    "archive": {
-      "links": "./data/archive.links.txt",
-      "names": "./data/archive.names.txt"
-    }
+    "linkIdentifier": "./data/archive.links.txt",
+    "titles": "./data/archive.names.txt"
   },
   "scripts": [
     {
-      "name": "./scripts/generateArchiveNamesFromSrc.py",
+      "id": 0,
+      "path": "./scripts/generateArchiveNamesFromSrc.py",
       "args": [
         "D:\\Music\\",
         "./data/archive.names.txt"
       ]
     },
     {
-      "name": "./scripts/jsonNameCreator.py",
+      "id": 1,
+      "path": "./scripts/jsonNameCreator.py",
       "args": [
         "./processed",
-        "file.json"
+        "./temp/file.json"
       ]
     }
   ],
@@ -33,8 +36,8 @@
       "shellLocation": "./temp/",
       "shellName": "playlist.Executive.sh",
       "shellNameSafe": "playlist.Executive.Safe.sh",
-      "shouldUpdateNameArchive": true,
       "renamingFilesUI": "todo",
+      "shouldUpdateNameArchive": true,
       "outputMove": "D:\\Music\\"
     },
     "channel": {

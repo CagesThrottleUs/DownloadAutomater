@@ -33,7 +33,7 @@ File Contents:
 -- data/
       -- archive.links.txt
       -- archive.names.txt
-      -- channels.tracked.json
+      -- Channels.tracked.json
       -- downloader.args.json
       -- executable.opts.json
 -- scripts/

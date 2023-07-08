@@ -9607,7 +9607,7 @@ NLOHMANN_JSON_NAMESPACE_BEGIN
                                                                                                    - static_cast<number_integer_t>(number));
                         }
 
-                            // Binary data (0x00..0x17 bytes follow)
+                            // Binary configuration (0x00..0x17 bytes follow)
                         case 0x40:
                         case 0x41:
                         case 0x42:
@@ -9632,11 +9632,11 @@ NLOHMANN_JSON_NAMESPACE_BEGIN
                         case 0x55:
                         case 0x56:
                         case 0x57:
-                        case 0x58: // Binary data (one-byte uint8_t for n follows)
-                        case 0x59: // Binary data (two-byte uint16_t for n follow)
-                        case 0x5A: // Binary data (four-byte uint32_t for n follow)
-                        case 0x5B: // Binary data (eight-byte uint64_t for n follow)
-                        case 0x5F: // Binary data (indefinite length)
+                        case 0x58: // Binary configuration (one-byte uint8_t for n follows)
+                        case 0x59: // Binary configuration (two-byte uint16_t for n follow)
+                        case 0x5A: // Binary configuration (four-byte uint32_t for n follow)
+                        case 0x5B: // Binary configuration (eight-byte uint64_t for n follow)
+                        case 0x5F: // Binary configuration (indefinite length)
                         {
                             binary_t b;
                             return get_cbor_binary(b) && sax->binary(b);
@@ -9677,7 +9677,7 @@ NLOHMANN_JSON_NAMESPACE_BEGIN
                             return get_cbor_string(s) && sax->string(s);
                         }
 
-                            // array (0x00..0x17 data items follow)
+                            // array (0x00..0x17 configuration items follow)
                         case 0x80:
                         case 0x81:
                         case 0x82:
@@ -9732,7 +9732,7 @@ NLOHMANN_JSON_NAMESPACE_BEGIN
                         case 0x9F: // array (indefinite length)
                             return get_cbor_array(static_cast<std::size_t>(-1), tag_handler);
 
-                            // map (0x00..0x17 pairs of data items follow)
+                            // map (0x00..0x17 pairs of configuration items follow)
                         case 0xA0:
                         case 0xA1:
                         case 0xA2:
@@ -10091,7 +10091,7 @@ NLOHMANN_JSON_NAMESPACE_BEGIN
 
                     switch (current)
                     {
-                        // Binary data (0x00..0x17 bytes follow)
+                        // Binary configuration (0x00..0x17 bytes follow)
                         case 0x40:
                         case 0x41:
                         case 0x42:
@@ -10120,35 +10120,35 @@ NLOHMANN_JSON_NAMESPACE_BEGIN
                             return get_binary(input_format_t::cbor, static_cast<unsigned int>(current) & 0x1Fu, result);
                         }
 
-                        case 0x58: // Binary data (one-byte uint8_t for n follows)
+                        case 0x58: // Binary configuration (one-byte uint8_t for n follows)
                         {
                             std::uint8_t len{};
                             return get_number(input_format_t::cbor, len) &&
                                    get_binary(input_format_t::cbor, len, result);
                         }
 
-                        case 0x59: // Binary data (two-byte uint16_t for n follow)
+                        case 0x59: // Binary configuration (two-byte uint16_t for n follow)
                         {
                             std::uint16_t len{};
                             return get_number(input_format_t::cbor, len) &&
                                    get_binary(input_format_t::cbor, len, result);
                         }
 
-                        case 0x5A: // Binary data (four-byte uint32_t for n follow)
+                        case 0x5A: // Binary configuration (four-byte uint32_t for n follow)
                         {
                             std::uint32_t len{};
                             return get_number(input_format_t::cbor, len) &&
                                    get_binary(input_format_t::cbor, len, result);
                         }
 
-                        case 0x5B: // Binary data (eight-byte uint64_t for n follow)
+                        case 0x5B: // Binary configuration (eight-byte uint64_t for n follow)
                         {
                             std::uint64_t len{};
                             return get_number(input_format_t::cbor, len) &&
                                    get_binary(input_format_t::cbor, len, result);
                         }
 
-                        case 0x5F: // Binary data (indefinite length)
+                        case 0x5F: // Binary configuration (indefinite length)
                         {
                             while (get() != 0xFF)
                             {
@@ -16684,7 +16684,7 @@ NLOHMANN_JSON_NAMESPACE_BEGIN
                 /*
     @brief write a number to output input
     @param[in] n number of type @a NumberType
-    @param[in] OutputIsLittleEndian Set to true if output data is
+    @param[in] OutputIsLittleEndian Set to true if output configuration is
                                  required to be little endian
     @tparam NumberType the type of the number
 
@@ -19526,11 +19526,11 @@ The invariants are checked by member function assert_invariant().
 
 
             ///////////////////////////
-            // JSON value data types //
+            // JSON value configuration types //
             ///////////////////////////
 
-            /// @name JSON value data types
-            /// The data types to store a JSON value. These types are derived from
+            /// @name JSON value configuration types
+            /// The configuration types to store a JSON value. These types are derived from
             /// the template arguments passed to class @ref basic_json.
             /// @{
 
